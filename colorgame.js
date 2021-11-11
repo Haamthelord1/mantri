@@ -1,13 +1,13 @@
-var numberOfSquares = 6;
-var colors=generateRandomColors(numberOfSquares);
+var numberOfSquares = 3;
+var colors=generateColors(numberOfSquares);
 var h1 = document.querySelector("h1");
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var message = document.querySelector("#message");
 var resetButton=document.querySelector("#reset");
-var easybtn = document.querySelector("#easybtn");
-var hardbtn = document.querySelector("#hardbtn");
+var easybtn = document.querySelector("#Paritybtn");
+var hardbtn = document.querySelector("#Emerdbtn");
 
 easybtn.addEventListener("click",function(){
 	hardbtn.classList.remove("selected");
@@ -60,14 +60,14 @@ for(var i=0;i<squares.length;i++){
 	squares[i].addEventListener("click",function(){
 		var clickedColor = this.style.backgroundColor;
 		if(clickedColor === pickedColor){
-			message.textContent="Correct!";
-			resetButton.textContent="Play Again?";
+			message.textContent="You Won!";
+			resetButton.textContent="Best Of Luck!";
 			changeColors(clickedColor);
 			h1.style.backgroundColor=clickedColor;
 		}
 		else{
 			this.style.background="#232323";
-			message.textContent="Try Again!";
+			message.textContent="You Lose!";
 		}
 	});
 }
